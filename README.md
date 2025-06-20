@@ -1,20 +1,20 @@
-# nostts
-New Open Source Trouble Ticketing System
+0# nostts
+New Open Source Trouble Ticketing System<br><br><br>
 Technical Documentation<br>
-Overview<br>
+<br><br>Overview<br>
 The New Open Source Trouble Ticketing System is a self-hosted, browser-based application for managing support tickets. It uses modern web technologies (HTML, CSS, JavaScript) and IndexedDB for persistent data storage.<br>
-Architecture<br>
+<br>Architecture<br>
 •	Frontend: HTML, CSS, and JavaScript.<br>
 •	Database: IndexedDB for client-side storage.<br>
 •	No backend: All logic and data storage happen in the browser.<br>
-Key Features<br>
+<br>Key Features<br>
 •	Ticket Management: Create, edit, update, and delete tickets.<br>
 •	Persistent Storage: Tickets are saved in IndexedDB and persist between browser sessions.<br>
 •	Search and Filter: Search by creator, title, or description. Filter by severity.<br>
 •	Sorting: Sort tickets by creation date, update time, severity, or creator.<br>
 •	Dashboard: View statistics on total, open, and closed tickets.<br>
 •	Branding: Customizable logo via logo.png.<br>
-Data Model<br>
+<br><br>Data Model<br>
 Each ticket contains the following fields:<br>
 •	id: Unique identifier (auto-generated).<br>
 •	creator: Name or identifier of the ticket creator.<br>
@@ -24,7 +24,7 @@ Each ticket contains the following fields:<br>
 •	status: One of New, Open, In Progress, Resolved, or Closed.<br>
 •	createdAt: Date and time the ticket was created.<br>
 •	updatedAt: Date and time the ticket was last updated.<br>
-How It Works<br>
+<br>How It Works<br>
 1.	Initialization<br>
 o	When the page loads, the application checks for an existing IndexedDB database.<br>
 o	If none exists, it creates one and sets up the required data structure.<br>
