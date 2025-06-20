@@ -1,0 +1,121 @@
+body {
+  font-family: Arial, sans-serif;
+  background: #f4f6fb;
+  margin: 0;
+  padding: 0;
+}
+header {
+  background: #2d3e50;
+  color: #fff;
+  padding: 1em 2em;
+  display: flex;
+  align-items: center;
+}
+.logo {
+  height: 48px;
+  margin-right: 1em;
+}
+h1 {
+  margin: 0;
+}
+main {
+  max-width: 900px;
+  margin: 2em auto;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px #0001;
+  padding: 2em;
+}
+.dashboard {
+  margin-bottom: 1.5em;
+}
+.stats {
+  display: flex;
+  gap: 2em;
+  margin-bottom: 1em;
+}
+.stat {
+  background: #e3eaf6;
+  padding: 1em 2em;
+  border-radius: 6px;
+  font-weight: bold;
+  text-align: center;
+}
+.controls {
+  display: flex;
+  gap: 1em;
+  margin-bottom: 1em;
+  flex-wrap: wrap;
+}
+#ticket-form-section {
+  margin-bottom: 2em;
+}
+#ticket-form input,
+#ticket-form textarea,
+#ticket-form select {
+  display: block;
+  width: 100%;
+  margin-bottom: 0.7em;
+  padding: 0.5em;
+  border-radius: 4px;
+  border: 1px solid #bbb;
+}
+#ticket-form button {
+  margin-right: 0.5em;
+}
+.tickets h2 {
+  margin-top: 0;
+}
+#ticket-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+.ticket {
+  background: #f9fafc;
+  border-left: 6px solid #2d3e50;
+  padding: 1em;
+  border-radius: 6px;
+  box-shadow: 0 1px 2px #0001;
+  position: relative;
+}
+.ticket .severity {
+  font-weight: bold;
+  padding: 0.2em 0.7em;
+  border-radius: 4px;
+  color: #fff;
+  margin-right: 1em;
+}
+.severity.Low { background: #6cc070; }
+.severity.Medium { background: #f7c948; }
+.severity.High { background: #f77e53; }
+.severity.Critical { background: #d7263d; }
+.ticket .status {
+  font-size: 0.95em;
+  padding: 0.2em 0.7em;
+  border-radius: 4px;
+  background: #e3eaf6;
+  margin-left: 1em;
+}
+.ticket .actions {
+  position: absolute;
+  top: 1em;
+  right: 1em;
+  display: flex;
+  gap: 0.5em;
+}
+.ticket .actions button {
+  background: #2d3e50;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 0.3em 0.7em;
+  cursor: pointer;
+  font-size: 0.95em;
+}
+.ticket .actions button.delete {
+  background: #d7263d;
+}
+.hidden {
+  display: none;
+}
