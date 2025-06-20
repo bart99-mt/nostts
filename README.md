@@ -1,6 +1,6 @@
 # nostts
 New Open Source Trouble Ticketing System
-Technical Documentation
+Technical Documentation<br>
 Overview
 The New Open Source Trouble Ticketing System is a self-hosted, browser-based application for managing support tickets. It uses modern web technologies (HTML, CSS, JavaScript) and IndexedDB for persistent data storage.
 Architecture
