@@ -72,13 +72,13 @@ function loadTickets() {
         t.description.toLowerCase().includes(search)
       );
     }
-    // Sorting
+    // Sorting - Changed to descending order
     tickets.sort((a, b) => {
       if (sortField === "severity") {
         const order = ["Low", "Medium", "High", "Critical"];
-        return order.indexOf(a.severity) - order.indexOf(b.severity);
+        return order.indexOf(b.severity) - order.indexOf(a.severity); // Reversed comparison
       }
-      return a[sortField] < b[sortField] ? -1 : 1;
+      return a[sortField] > b[sortField] ? -1 : 1; // Changed comparison operator
     });
     displayTickets(tickets);
   };
