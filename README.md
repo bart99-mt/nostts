@@ -1,3 +1,4 @@
+To quickly start using this project as it is, download the "installation-srcipt.bat" and launch it. The script will download the whole repository and unpack it into "%appdata%\nostts\" then create a desktop shortcuts to the index.html and .docx files. No elevated previleges required. <br><br>
 New Open Source Trouble Ticketing System<br><br><br>
 Technical Documentation<br>
 <br><br>Overview<br>
