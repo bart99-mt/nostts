@@ -51,3 +51,51 @@ Security and Privacy<br>
 7. Version Control and Updates<br>
 •	IndexedDB Versioning: The database schema is versioned to support future updates.<br>
 •	Data Preservation: Upgrades to the application will preserve existing tickets as long as the browser data is not cleared<br>
+
+User Manual:<br>
+New Open Source Trouble Ticketing System<br>
+Introduction<br>
+Welcome to the New Open Source Trouble Ticketing System! This web-based application helps you create, track, and manage support tickets directly in your browser. All your data is stored securely and privately on your computer—no server or internet connection is required after setup.<br>
+Getting Started<br>
+1.	Open the Application<br>
+o	Double-click the index.html file to open it in your web browser.<br>
+o	The system will load and display the main dashboard.<br>
+2.	Viewing Tickets<br>
+o	The dashboard shows a summary of all tickets.<br>
+o	You can see the total number of tickets, as well as how many are open or closed.<br>
+o	The list of tickets appears below the dashboard.<br>
+Creating a Ticket<br>
+1.	Click "New Ticket"<br>
+o	Click the “New Ticket” button above the ticket list.<br>
+o	A form will appear where you can enter ticket details.<br>
+2.	Fill in Ticket Details<br>
+o	Creator: Enter your name or identifier.<br>
+o	Title: Give your ticket a brief title.<br>
+o	Description: Describe the issue or request.<br>
+o	Severity: Select the severity level (Low, Medium, High, Critical).<br>
+o	Status: Set the initial status (usually “New”).<br>
+o	Click "Save Ticket" to submit.<br>
+Editing a Ticket<br>
+1.	Find the Ticket<br>
+o	Locate the ticket you want to edit in the list.<br>
+2.	Click "Edit"<br>
+o	Click the “Edit” button on the ticket card.<br>
+o	The ticket details will load into the form.<br>
+3.	Make Changes<br>
+o	Update any field as needed.<br>
+o	Click "Save Ticket" to update.<br>
+Deleting a Ticket<br>
+1.	Find the Ticket<br>
+o	Locate the ticket you want to delete.<br>
+2.	Click "Delete"<br>
+o	Click the “Delete” button on the ticket card.<br>
+o	Confirm deletion if prompted.<br>
+Searching, Filtering, and Sorting<br>
+•	Search: Use the search box to find tickets by creator, title, or description.<br>
+•	Filter by Severity: Select a severity level to show only tickets of that type.<br>
+•	Sort: Choose to sort tickets by creation date, update time, severity, or creator.<br>
+•	Reset Filters: Click “Reset” to clear all filters and sorting.<br>
+Tips<br>
+•	Your data is private: All tickets are stored in your browser and will not be lost between sessions (unless you clear browser data).<br>
+•	No login required: Anyone using your computer can create or manage tickets.<br>
+•	Replace logo.png with your own logo for custom branding.<br>
