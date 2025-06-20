@@ -1,4 +1,3 @@
-0# nostts
 New Open Source Trouble Ticketing System<br><br><br>
 Technical Documentation<br>
 <br><br>Overview<br>
