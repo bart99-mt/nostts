@@ -37,18 +37,18 @@ o	Filter: Applies search and severity filters as specified by the user.<br>
 o	Sort: Sorts tickets according to the selected field.<br>
 4.	Statistics<br>
 o	Update Stats: Calculates and displays total, open, and closed tickets.<br>
-Security and Privacy<br>
+5. Security and Privacy<br>
 •	No server communication: All data remains on the user’s device.<br>
 •	No authentication: Anyone with access to the browser can use the system.<br>
 •	Private data: Tickets are only accessible from the browser where they were created.<br>
-5. Customization<br>
+6. Customization<br>
 •	Branding: Replace logo.png to change the logo.<br>
 •	CSS: Modify style.css to change the look and feel.<br>
 •	JavaScript: Extend script.js for additional features.<br>
-6. Compatibility<br>
+7. Compatibility<br>
 •	Supported Browsers: Modern browsers that support IndexedDB (Chrome, Firefox, Edge, Safari).<br>
 •	No installation required: Just open index.html in your browser.<br>
-7. Version Control and Updates<br>
+8. Version Control and Updates<br>
 •	IndexedDB Versioning: The database schema is versioned to support future updates.<br>
 •	Data Preservation: Upgrades to the application will preserve existing tickets as long as the browser data is not cleared<br>
 
