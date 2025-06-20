@@ -52,8 +52,3 @@ Compatibility
 Version Control and Updates
 •	IndexedDB Versioning: The database schema is versioned to support future updates.
 •	Data Preservation: Upgrades to the application will preserve existing tickets as long as the browser data is not cleared.
-License Disclaimer for the NOSTTS (New Open Source Trouble Ticketing System)
-•	This project is released into the public domain.
-•	The person associated with this project has waived all copyright and related or neighboring rights to this work to the fullest extent permitted by law. You are free to use, copy, modify, publish, distribute, perform, display, and make derivative works from this documentation for any purpose, commercial or non-commercial, and in any way, without asking permission.
-•	No attribution is required. This project is provided "as is", without warranty of any kind, express or implied. In no event shall the author(s) be liable for any claim, damages, or other liability, whether in an action of contract, tort, or otherwise, arising from, out of, or in connection with the project or the use or other dealings in the project.
-
