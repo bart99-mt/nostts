@@ -6,7 +6,7 @@ echo =====================================================
 echo.
 
 REM Set installation directory
-set INSTALL_DIR=%appdata%\nttos
+set INSTALL_DIR=%appdata%\nostts
 echo Installation directory: %INSTALL_DIR%
 
 REM Create installation directory if it doesn't exist

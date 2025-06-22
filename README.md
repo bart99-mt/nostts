@@ -1,102 +1,73 @@
-To quickly start using this project as it is, download the "installation-srcipt.bat" and launch it. The script will download the whole repository and unpack it into "%appdata%\nostts\\" then create a desktop shortcuts to the index.html and .docx files. No elevated previleges required. <br><br>
-New Open Source Trouble Ticketing System<br><br><br>
-Technical Documentation<br>
-<br><br>Overview<br>
-The New Open Source Trouble Ticketing System is a self-hosted, browser-based application for managing support tickets. It uses modern web technologies (HTML, CSS, JavaScript) and IndexedDB for persistent data storage.<br>
-<br>Architecture<br>
-•	Frontend: HTML, CSS, and JavaScript.<br>
-•	Database: IndexedDB for client-side storage.<br>
-•	No backend: All logic and data storage happen in the browser.<br>
-<br>Key Features<br>
-•	Ticket Management: Create, edit, update, and delete tickets.<br>
-•	Persistent Storage: Tickets are saved in IndexedDB and persist between browser sessions.<br>
-•	Search and Filter: Search by creator, title, or description. Filter by severity.<br>
-•	Sorting: Sort tickets by creation date, update time, severity, or creator.<br>
-•	Dashboard: View statistics on total, open, and closed tickets.<br>
-•	Branding: Customizable logo via logo.png.<br>
-<br><br>Data Model<br>
-Each ticket contains the following fields:<br>
-•	id: Unique identifier (auto-generated).<br>
-•	creator: Name or identifier of the ticket creator.<br>
-•	title: Short title of the ticket.<br>
-•	description: Detailed description of the issue.<br>
-•	severity: One of Low, Medium, High, or Critical.<br>
-•	status: One of New, Open, In Progress, Resolved, or Closed.<br>
-•	createdAt: Date and time the ticket was created.<br>
-•	updatedAt: Date and time the ticket was last updated.<br>
-<br>How It Works<br>
-1.	Initialization<br>
-o	When the page loads, the application checks for an existing IndexedDB database.<br>
-o	If none exists, it creates one and sets up the required data structure.<br>
-2.	Ticket Operations<br>
-o	Create: Adds a new ticket to the database.<br>
-o	Edit: Updates an existing ticket.<br>
-o	Delete: Removes a ticket from the database.<br>
-3.	Display and Filtering<br>
-o	Load Tickets: Retrieves all tickets from the database.<br>
-o	Filter: Applies search and severity filters as specified by the user.<br>
-o	Sort: Sorts tickets according to the selected field.<br>
-4.	Statistics<br>
-o	Update Stats: Calculates and displays total, open, and closed tickets.<br>
-5. Security and Privacy<br>
-•	No server communication: All data remains on the user’s device.<br>
-•	No authentication: Anyone with access to the browser can use the system.<br>
-•	Private data: Tickets are only accessible from the browser where they were created.<br>
-6. Customization<br>
-•	Branding: Replace logo.png to change the logo.<br>
-•	CSS: Modify style.css to change the look and feel.<br>
-•	JavaScript: Extend script.js for additional features.<br>
-7. Compatibility<br>
-•	Supported Browsers: Modern browsers that support IndexedDB (Chrome, Firefox, Edge, Safari).<br>
-•	No installation required: Just open index.html in your browser.<br>
-8. Version Control and Updates<br>
-•	IndexedDB Versioning: The database schema is versioned to support future updates.<br>
-•	Data Preservation: Upgrades to the application will preserve existing tickets as long as the browser data is not cleared<br>
+# **New Open Source Trouble Ticketing System**
 
-User Manual:<br>
-New Open Source Trouble Ticketing System<br>
-Introduction<br>
-Welcome to the New Open Source Trouble Ticketing System! This web-based application helps you create, track, and manage support tickets directly in your browser. All your data is stored securely and privately on your computer—no server or internet connection is required after setup.<br>
-Getting Started<br>
-1.	Open the Application<br>
-o	Double-click the index.html file to open it in your web browser.<br>
-o	The system will load and display the main dashboard.<br>
-2.	Viewing Tickets<br>
-o	The dashboard shows a summary of all tickets.<br>
-o	You can see the total number of tickets, as well as how many are open or closed.<br>
-o	The list of tickets appears below the dashboard.<br>
-Creating a Ticket<br>
-1.	Click "New Ticket"<br>
-o	Click the “New Ticket” button above the ticket list.<br>
-o	A form will appear where you can enter ticket details.<br>
-2.	Fill in Ticket Details<br>
-o	Creator: Enter your name or identifier.<br>
-o	Title: Give your ticket a brief title.<br>
-o	Description: Describe the issue or request.<br>
-o	Severity: Select the severity level (Low, Medium, High, Critical).<br>
-o	Status: Set the initial status (usually “New”).<br>
-o	Click "Save Ticket" to submit.<br>
-Editing a Ticket<br>
-1.	Find the Ticket<br>
-o	Locate the ticket you want to edit in the list.<br>
-2.	Click "Edit"<br>
-o	Click the “Edit” button on the ticket card.<br>
-o	The ticket details will load into the form.<br>
-3.	Make Changes<br>
-o	Update any field as needed.<br>
-o	Click "Save Ticket" to update.<br>
-Deleting a Ticket<br>
-1.	Find the Ticket<br>
-o	Locate the ticket you want to delete.<br>
-2.	Click "Delete"<br>
-o	Click the “Delete” button on the ticket card.<br>
-o	Confirm deletion if prompted.<br>
-Searching, Filtering, and Sorting<br>
-•	Search: Use the search box to find tickets by creator, title, or description.<br>
-•	Filter by Severity: Select a severity level to show only tickets of that type.<br>
-•	Sort: Choose to sort tickets by creation date, update time, severity, or creator.<br>
-•	Reset Filters: Click “Reset” to clear all filters and sorting.<br>
-Tips<br>
-•	Your data is private: All tickets are stored in your browser and will not be lost between sessions (unless you clear browser data).<br>
-•	No login required: Anyone using your computer can create or manage tickets.<br>
-•	Replace logo.png with your own logo for custom branding.<br>
+A simple, self-hosted, and browser-based trouble ticketing system. Manage your support tickets with ease, directly in your web browser. This is a fully client-side application with no backend, meaning all data is stored locally in your browser.
+
+## **Key Features**
+
+* **Ticket Management**: Create, edit, update, and delete support tickets.  
+* **Persistent Client-Side Storage**: Tickets are saved in your browser's IndexedDB and persist between sessions.  
+* **Search and Filtering**: Easily find tickets by creator, title, or description, and filter by severity.  
+* **Sorting Options**: Organize tickets by creation date, last update, severity, or creator.  
+* **Dashboard Analytics**: Get a quick overview with stats on total, open, and closed tickets.  
+* **Customizable Branding**: Easily replace the logo.png to use your own branding.  
+* **No Backend Required**: This is a fully client-side application, ensuring your data stays private on your machine.  
+* **Modern Browser Support**: Works in all modern browsers that support IndexedDB, including Chrome, Firefox, Edge, and Safari.
+
+## **Getting Started**
+
+### **Option 1: Quick Install (Windows)**
+
+1. Download the installation-script.bat file.  
+2. Run the script. It will download the necessary files to %appdata%\\nostts\\ and create desktop shortcuts.
+
+### **Option 2: Manual Setup**
+
+1. Download or clone the repository to your local machine.  
+2. Open the index.html file in a modern web browser.
+
+## **How to Use**
+
+* **Viewing Tickets**: The main dashboard displays a summary of your tickets, and the full list is shown below.  
+* **Creating a Ticket**: Click the "New Ticket" button, fill out the form, and click "Save Ticket."  
+* **Editing a Ticket**: Find the ticket you want to modify, click the "Edit" button, change the necessary information, and save.  
+* **Deleting a Ticket**: Click the "Delete" button on the ticket you wish to remove and confirm the action.  
+* **Searching & Filtering**: Use the controls at the top of the page to search, filter, or sort. Click "Reset" to clear all filters.
+
+## **Technical Overview**
+
+### **Architecture**
+
+* **Frontend**: HTML, CSS, JavaScript  
+* **Database**: IndexedDB for client-side storage  
+* **Backend**: None. This is a fully client-side application.
+
+### **How It Works**
+
+When the application is loaded, it checks for an existing IndexedDB database named "TroubleTicketDB". If the database doesn't exist, it is created with a "tickets" object store. All ticket operations (create, edit, delete) are handled as transactions within the IndexedDB database. The ticket list is dynamically rendered on the page, and any filtering or sorting actions will re-fetch and re-display the data accordingly.
+
+### **Data Model**
+
+Each ticket is stored as an object in the IndexedDB database with the following fields:
+
+| Field | Type | Description |
+| :---- | :---- | :---- |
+| id | Number | Unique identifier, generated using Date.now(). |
+| creator | String | The name of the person who created the ticket. |
+| title | String | The title of the ticket. |
+| description | String | A detailed description of the issue. |
+| severity | String | The severity of the ticket. Can be one of: Low, Medium, High, Critical. |
+| status | String | The current status of the ticket. Can be one of: New, Open, In Progress, Resolved, Closed. |
+| createdAt | String | The date and time the ticket was created, in ISO 8601 format. |
+| updatedAt | String | The date and time the ticket was last updated, in ISO 8601 format. |
+
+### **Security and Privacy**
+
+* **No Server Communication**: All data is stored locally in the user's browser and is never sent to a server.  
+* **No Authentication**: The application does not have an authentication system. Anyone with access to the browser can view and manage the tickets.  
+* **Data Privacy**: Tickets are only accessible from the browser profile in which they were created. Clearing browser data will permanently delete all tickets.
+
+### **Customization**
+
+* **Branding**: To use your own logo, simply replace the logo.png file with your own image.  
+* **Styling**: The look and feel of the application can be customized by modifying the style.css file.  
+* **Functionality**: Additional features can be added by editing the script.js file.
