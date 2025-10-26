@@ -43,9 +43,10 @@ document.getElementById("ticket-form").addEventListener("submit", function (e) {
   const transaction = db.transaction(["tickets"], "readwrite");
   const store = transaction.objectStore("tickets");
   store.put(ticket);
-  hideForm();
+  hideModal();
   loadTickets();
   updateStats();
+  showToast(ticket.id ? "Ticket updated!" : "Ticket created!");
 });
 
 function loadTickets() {
@@ -72,13 +73,19 @@ function loadTickets() {
         t.description.toLowerCase().includes(search)
       );
     }
-    // Sorting - Changed to descending order
+    // Sort tickets in descending order
     tickets.sort((a, b) => {
       if (sortField === "severity") {
         const order = ["Low", "Medium", "High", "Critical"];
-        return order.indexOf(b.severity) - order.indexOf(a.severity); // Reversed comparison
+        return order.indexOf(b.severity) - order.indexOf(a.severity);
       }
-      return a[sortField] > b[sortField] ? -1 : 1; // Changed comparison operator
+      if (sortField === 'createdAt' || sortField === 'updatedAt') {
+        return new Date(b[sortField]) - new Date(a[sortField]);
+      }
+      if (typeof a[sortField] === 'string') {
+        return b[sortField].localeCompare(a[sortField]);
+      }
+      return b[sortField] - a[sortField]; // Fallback for numeric
     });
     displayTickets(tickets);
   };
@@ -105,37 +112,44 @@ function displayTickets(tickets) {
       <p><strong>Created:</strong> ${new Date(ticket.createdAt).toLocaleString()}</p>
       <p><strong>Updated:</strong> ${new Date(ticket.updatedAt).toLocaleString()}</p>
       <div class="actions">
-        <button onclick="editTicket(${ticket.id})">Edit</button>
-        <button class="delete" onclick="deleteTicket(${ticket.id})">Delete</button>
+        <button data-id="${ticket.id}" data-action="edit">Edit</button>
+        <button class="delete" data-id="${ticket.id}" data-action="delete">Delete</button>
       </div>
     `;
     ticketList.appendChild(div);
   });
 }
 
-window.editTicket = function(id) {
-  const transaction = db.transaction(["tickets"], "readonly");
-  const store = transaction.objectStore("tickets");
-  const request = store.get(id);
-  request.onsuccess = (event) => {
-    const ticket = event.target.result;
-    if (ticket) {
-      showForm(ticket);
-    }
-  };
-};
+document.getElementById('ticket-list').addEventListener('click', (e) => {
+  const target = e.target;
+  const id = Number(target.dataset.id);
 
-window.deleteTicket = function(id) {
-  if (!confirm("Delete this ticket?")) return;
-  const transaction = db.transaction(["tickets"], "readwrite");
-  const store = transaction.objectStore("tickets");
-  store.delete(id);
-  loadTickets();
-  updateStats();
-};
+  if (target.dataset.action === 'edit') {
+    const transaction = db.transaction(["tickets"], "readonly");
+    const store = transaction.objectStore("tickets");
+    const request = store.get(id);
+    request.onerror = (e) => console.error("Error fetching ticket:", e.target.error);
+    request.onsuccess = (e) => showModal(e.target.result);
+  }
 
-function showForm(ticket = null) {
-  document.getElementById("ticket-form-section").classList.remove("hidden");
+  if (target.dataset.action === 'delete') {
+    if (!confirm("Delete this ticket?")) return;
+    const transaction = db.transaction(["tickets"], "readwrite");
+    const store = transaction.objectStore("tickets");
+    const request = store.delete(id);
+    request.onerror = (e) => console.error("Error deleting ticket:", e.target.error);
+    request.onsuccess = () => {
+      loadTickets();
+      updateStats();
+      showToast("Ticket deleted.");
+    };
+  }
+});
+
+const modal = document.getElementById("ticket-modal");
+
+function showModal(ticket = null) {
+  modal.style.display = "flex";
   if (ticket) {
     document.getElementById("ticket-id").value = ticket.id;
     document.getElementById("ticket-id").dataset.createdAt = ticket.createdAt;
@@ -147,18 +161,24 @@ function showForm(ticket = null) {
   } else {
     document.getElementById("ticket-form").reset();
     document.getElementById("ticket-id").value = "";
-    document.getElementById("ticket-id").dataset.createdAt = "";
   }
 }
-function hideForm() {
-  document.getElementById("ticket-form-section").classList.add("hidden");
+
+function hideModal() {
+  modal.style.display = "none";
   document.getElementById("ticket-form").reset();
   document.getElementById("ticket-id").value = "";
-  document.getElementById("ticket-id").dataset.createdAt = "";
 }
 
-document.getElementById("show-create-form").addEventListener("click", () => showForm());
-document.getElementById("cancel-edit").addEventListener("click", hideForm);
+function showToast(message) {
+  const toast = document.getElementById("toast");
+  toast.textContent = message;
+  toast.className = "toast show";
+  setTimeout(() => { toast.className = toast.className.replace("show", ""); }, 3000);
+}
+
+document.getElementById("show-create-form").addEventListener("click", () => showModal());
+modal.querySelector(".close-button").addEventListener("click", hideModal);
 
 document.getElementById("search").addEventListener("input", loadTickets);
 document.getElementById("filter-severity").addEventListener("change", loadTickets);
