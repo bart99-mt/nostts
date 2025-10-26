@@ -119,3 +119,22 @@ main {
 .hidden {
   display: none;
 }
+.toast {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #333;
+  color: #fff;
+  padding: 15px 25px;
+  border-radius: 8px;
+  z-index: 1010;
+  opacity: 0;
+  transition: opacity 0.3s, bottom 0.3s;
+  visibility: hidden;
+}
+.toast.show {
+  opacity: 1;
+  bottom: 30px;
+  visibility: visible;
+}
